@@ -2,15 +2,143 @@ body {
   font-family: Arial, sans-serif;
   margin: 20px;
 }
-h1 {
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+#wallet-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wallet-address {
+  font-family: monospace;
+  font-size: 0.85em;
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.wallet-balance {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #2a7d2a;
+}
+
+.toast {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 0.95em;
+  z-index: 1000;
+  transition: opacity 0.3s;
+  max-width: 90%;
   text-align: center;
 }
+
+.toast.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toast.success {
+  background: #2a7d2a;
+}
+
+.toast.error {
+  background: #c0392b;
+}
+
+.toast.warning {
+  background: #e67e22;
+}
+
 .spot {
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px 0;
 }
+
 button {
   padding: 5px 10px;
   cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.connect-btn {
+  background: #49b3a1;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+.connect-btn:hover:not(:disabled) {
+  background: #3a9484;
+}
+
+.disconnect-btn {
+  background: transparent;
+  border: 1px solid #999;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: #666;
+}
+
+.disconnect-btn:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+.wallet-hint {
+  font-size: 0.8em;
+  color: #999;
+  margin-top: 4px;
+}
+
+.tx-result {
+  margin-top: 8px;
+  font-size: 0.85em;
+}
+
+.tx-link {
+  color: #2980b9;
+  word-break: break-all;
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ccc;
+  border-top-color: #49b3a1;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
